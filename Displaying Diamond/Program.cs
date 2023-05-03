@@ -2,35 +2,36 @@
 {
     static void Main(string[] args)
     {
-        // declaring variables
-        int n = 5;
-        
-        // upper half of diamond
-        for (int i = 1; i <= n; i++)
-        {
-            for (int j = 1; j <= n - i; j++)
-            {
-                Console.Write(" ");
-            }
-            for (int j = 1; j <= 2 * i - 1; j++)
-            {
-                Console.Write("*");
-            }
-            Console.WriteLine();
-        }
+        int size = 9;
+        int mid = size / 2;
+        int count = 1;
+        int spaces = mid;
 
-        // lower half of diamond
-        for (int i = n - 1; i >= 1; i--)
+        for (int i = 0; i < size; i++)
         {
-            for (int j = 1; j <= n - i; j++)
+            for (int j = 0; j < spaces; j++)
             {
                 Console.Write(" ");
             }
-            for (int j = 1; j <= 2 * i - 1; j++)
+
+            for (int k = 0; k < count; k++)
             {
                 Console.Write("*");
             }
+
             Console.WriteLine();
+
+            if (i < mid)
+            {
+                count += 2;
+                spaces--;
+            }
+            else
+            {
+                count -= 2;
+                spaces++;
+            }
         }
+    }
     }
 }
